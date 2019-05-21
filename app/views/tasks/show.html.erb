@@ -1,0 +1,22 @@
+<div class="container my-4">
+
+  <div class="d-flex justify-content-between">
+    <h1><%= @task.title %></h1>
+    <%= link_to (edit_task_path) do %>
+      <button type="button" class="btn btn-outline-secondary h-30px"><i class="fas fa-pen pr-2"></i>Edit Task</button>
+    <% end %>
+  </div>
+
+  <div class="shadow-sm p-3 my-3 bg-light rounded"><%= @task.details %></div>
+    <% checked = 'checked' if @task.completed %>
+    <% @task.completed ? completed = '' : completed = 'not' %>
+
+    <div class="custom-control custom-checkbox mt-0 mb-1">
+      <input type="checkbox" class="custom-control-input" <%= checked %>>
+      <label class="custom-control-label">This task is <%= completed %> completed</label>
+    </div>
+    <hr>
+
+  <%= render 'backhome' %>
+  </div>
+</div>
